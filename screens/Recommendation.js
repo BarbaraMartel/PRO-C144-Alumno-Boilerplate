@@ -16,6 +16,8 @@ export default class RecommendedMoviesScreen extends Component {
     super(props);
   }
 
+  /*define getData() function here*/
+
   render() {
       return (
         <View style={styles.container}>
@@ -23,7 +25,8 @@ export default class RecommendedMoviesScreen extends Component {
             source={require("../assets/bg.png")}
             style={{ flex: 1 }}
           >
-            
+            {/*Add the FlatList component to show the recommended movies data below*/}
+
           </ImageBackground>
         </View>
       );
