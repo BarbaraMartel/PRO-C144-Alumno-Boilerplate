@@ -16,7 +16,7 @@ export default class LikedMoviesScreen extends Component {
     super(props);
   }
 
-   /*define getData() function here*/
+   /*define la función getData()*/
 
   render() {
     return (
@@ -25,7 +25,7 @@ export default class LikedMoviesScreen extends Component {
           source={require("../assets/bg.png")}
           style={{ flex: 1 }}
         >
-          {/*Add the FlatList component to show the liked movies data below*/}
+          {/*Agrega el componente FlatList para mostrar las películas que te gustaron abajo*/}
           
         </ImageBackground>
       </View>
