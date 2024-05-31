@@ -28,58 +28,27 @@ export default class HomeScreen extends Component {
   /*define las funciones getmovie(), likedMovie(), dislikedMovie() ,notWatched() aquí*/
 
   getMovie = () => {
-    const url = this.state.ngrok_url + "/movies";
-    axios
-      .get(url)
-      .then((response) => {
-        this.setState({ movieDetails: response.data.data });
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
+
+    
   };
 
   likedMovie = () => {
-    const url = this.state.ngrok_url + "/like";
-    axios
-      .get(url)
-      .then((response) => {
-        this.getMovie();
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
+
+    
   };
 
   dislikedMovie = () => {
-    const url = this.state.ngrok_url + "/dislike";
-    axios
-      .get(url)
-      .then((response) => {
-        this.getMovie();
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
+
+    
   };
 
   notWatched = () => {
-    const url = this.state.ngrok_url + "/did_not_watch";
-    axios
-      .get(url)
-      .then((response) => {
-        this.getMovie();
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
+
+    
   };
 
   render() {
-    const { movieDetails } = this.state;
-    if (movieDetails.poster_link) {
-      const { poster_link, original_title, release_date, duration, rating } =
-        movieDetails;
+    
 
       return (
         <View style={styles.container}>
@@ -104,53 +73,34 @@ export default class HomeScreen extends Component {
             <View style={styles.subContainer}>
               <View style={styles.posterContainer}>
                 {/*Agrega el componente para el póster abajo*/}
-                <Image
-                  style={styles.posterImage}
-                  source={{ uri: poster_link }}
-                />
+
+                  
               </View>
               <View style={{ flex: 0.15 }}>
                 {/*Agrega los componentes para mostrar el nombre de la película y  
                 otros detalles (fecha de estreno y duración) abajo*/}
-                <View style={styles.detailsContainer}>
-                  <Text style={styles.title}>{original_title}</Text>
-                  <Text style={styles.subtitle}>
-                    {release_date.split("-")[0]} | {duration} mins
-                  </Text>
-                </View>
+
+
               </View>
               <View style={styles.ratingContainer}>
                 {/*Agrega los componentes para mostrar la calificación de la película abajo*/}
-                <Star score={rating} style={styles.starStyle} />
+                
+                
               </View>
               <View style={styles.iconButtonContainer}>
                 {/*Agrega el código para los botones me gustó, no me gustó y no la he visto abajo*/}
-                <TouchableOpacity onPress={this.likedMovie}>
-                  <Image
-                    style={styles.iconImage}
-                    source={require("../assets/like.png")}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={this.dislikedMovie}>
-                  <Image
-                    style={styles.iconImage}
-                    source={require("../assets/dislike.png")}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={this.notWatched}>
-                  <Image
-                    style={styles.iconImage}
-                    source={require("../assets/didNotWatch.png")}
-                  />
-                </TouchableOpacity>
+
+
+                
               </View>
             </View>
           </ImageBackground>
         </View>
       );
-    } else {
-      return null;
-    }
+    } //else
+
+
+
   }
 }
 
